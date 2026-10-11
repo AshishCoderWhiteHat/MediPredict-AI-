@@ -3,7 +3,20 @@
  * Centralized HTTP client connecting the React frontend to the FastAPI backend.
  */
 
-const API_BASE = (import.meta.env.VITE_API_URL || '').replace(/\/$/, '');
+const getApiBase = () => {
+  // If explicitly configured via VITE_API_URL, use it
+  if (import.meta.env.VITE_API_URL) {
+    return import.meta.env.VITE_API_URL.replace(/\/$/, '');
+  }
+  // When running locally under Vite dev server (port 5173 or 4173), direct requests to FastAPI on port 8000
+  if (typeof window !== 'undefined' && (window.location.port === '5173' || window.location.port === '4173')) {
+    return `${window.location.protocol}//${window.location.hostname}:8000`;
+  }
+  // When running unified in production (single port), use relative paths
+  return '';
+};
+
+const API_BASE = getApiBase();
 
 async function handleResponse(response) {
   if (!response.ok) {

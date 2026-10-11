@@ -10,7 +10,7 @@ import logging
 from typing import Dict, Any, List
 from fastapi import FastAPI, HTTPException, status
 from fastapi.middleware.cors import CORSMiddleware
-from fastapi.responses import JSONResponse
+from fastapi.responses import JSONResponse, FileResponse
 
 from src.inference.schemas import (
     PatientInput,
@@ -61,7 +61,23 @@ _START_TIME = time.time()
 
 @app.get("/", tags=["General"])
 def root():
-    """Welcome endpoint providing service overview and documentation link."""
+    """Serves the React single page app if built, or API status overview."""
+    from pathlib import Path
+    dist_index = Path(__file__).resolve().parent / "frontend" / "dist" / "index.html"
+    if dist_index.exists():
+        return FileResponse(dist_index)
+    return {
+        "service": "MediPredict AI API",
+        "status": "online",
+        "version": "1.0.0",
+        "documentation": "/docs",
+        "disclaimer": CLINICAL_DISCLAIMER
+    }
+
+
+@app.get("/api", tags=["General"])
+def api_status_overview():
+    """API overview and documentation link."""
     return {
         "service": "MediPredict AI API",
         "status": "online",
