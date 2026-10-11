@@ -1,0 +1,182 @@
+{
+  "project": "MediPredict AI",
+  "timestamp": "2026-10-10T11:09:33.659366+00:00",
+  "dataset_hash": "698c203a14aa31941d2251175330c9199f3ccdb31597abbba2a3e35416257a72",
+  "selected_model_name": "Logistic Regression",
+  "clinical_selection_score": 0.7482,
+  "feature_names": [
+    "Pregnancies",
+    "Glucose",
+    "BloodPressure",
+    "SkinThickness",
+    "Insulin",
+    "BMI",
+    "DiabetesPedigreeFunction",
+    "Age"
+  ],
+  "target_name": "Outcome",
+  "train_samples": 614,
+  "test_samples": 154,
+  "models_evaluated": {
+    "Logistic Regression": {
+      "tuning_parameters": {
+        "best_params": {
+          "classifier__C": 0.5,
+          "classifier__class_weight": "balanced",
+          "classifier__penalty": "l2"
+        },
+        "best_cv_score": 0.845
+      },
+      "cv_metrics_mean": {
+        "accuracy": 0.7622,
+        "precision": 0.6486,
+        "recall": 0.701,
+        "f1": 0.6724,
+        "roc_auc": 0.845
+      },
+      "test_metrics": {
+        "accuracy": 0.7338,
+        "balanced_accuracy": 0.7269,
+        "precision": 0.6032,
+        "recall": 0.7037,
+        "specificity": 0.75,
+        "f1_score": 0.6496,
+        "roc_auc": 0.8126,
+        "pr_auc": 0.6728,
+        "brier_score": 0.1814
+      },
+      "selection_score": 0.7482,
+      "is_best": true
+    },
+    "Random Forest": {
+      "tuning_parameters": {
+        "best_params": {
+          "classifier__max_depth": 5,
+          "classifier__max_features": "log2",
+          "classifier__min_samples_leaf": 1,
+          "classifier__n_estimators": 100
+        },
+        "best_cv_score": 0.8408
+      },
+      "cv_metrics_mean": {
+        "accuracy": 0.785,
+        "precision": 0.7436,
+        "recall": 0.5981,
+        "f1": 0.6609,
+        "roc_auc": 0.8408
+      },
+      "test_metrics": {
+        "accuracy": 0.7273,
+        "balanced_accuracy": 0.675,
+        "precision": 0.6429,
+        "recall": 0.5,
+        "specificity": 0.85,
+        "f1_score": 0.5625,
+        "roc_auc": 0.8043,
+        "pr_auc": 0.6683,
+        "brier_score": 0.1713
+      },
+      "selection_score": 0.6683,
+      "is_best": false
+    },
+    "Gradient Boosting": {
+      "tuning_parameters": {
+        "best_params": {
+          "classifier__learning_rate": 0.1,
+          "classifier__max_depth": 3,
+          "classifier__n_estimators": 50,
+          "classifier__subsample": 0.8
+        },
+        "best_cv_score": 0.8387
+      },
+      "cv_metrics_mean": {
+        "accuracy": 0.7671,
+        "precision": 0.6973,
+        "recall": 0.6028,
+        "f1": 0.6437,
+        "roc_auc": 0.8387
+      },
+      "test_metrics": {
+        "accuracy": 0.7338,
+        "balanced_accuracy": 0.6885,
+        "precision": 0.6444,
+        "recall": 0.537,
+        "specificity": 0.84,
+        "f1_score": 0.5859,
+        "roc_auc": 0.8167,
+        "pr_auc": 0.6861,
+        "brier_score": 0.1691
+      },
+      "selection_score": 0.6888,
+      "is_best": false
+    },
+    "SVM": {
+      "tuning_parameters": {
+        "best_params": {
+          "classifier__C": 10.0,
+          "classifier__class_weight": null,
+          "classifier__kernel": "linear"
+        },
+        "best_cv_score": 0.8447
+      },
+      "cv_metrics_mean": {
+        "accuracy": 0.7882,
+        "precision": 0.7672,
+        "recall": 0.5701,
+        "f1": 0.6524,
+        "roc_auc": 0.8447
+      },
+      "test_metrics": {
+        "accuracy": 0.7013,
+        "balanced_accuracy": 0.6507,
+        "precision": 0.5909,
+        "recall": 0.4815,
+        "specificity": 0.82,
+        "f1_score": 0.5306,
+        "roc_auc": 0.8137,
+        "pr_auc": 0.675,
+        "brier_score": 0.1736
+      },
+      "selection_score": 0.6593,
+      "is_best": false
+    },
+    "XGBoost": {
+      "tuning_parameters": {
+        "best_params": {
+          "classifier__colsample_bytree": 0.8,
+          "classifier__learning_rate": 0.05,
+          "classifier__max_depth": 2,
+          "classifier__n_estimators": 100,
+          "classifier__subsample": 0.8
+        },
+        "best_cv_score": 0.8403
+      },
+      "cv_metrics_mean": {
+        "accuracy": 0.7736,
+        "precision": 0.7148,
+        "recall": 0.5936,
+        "f1": 0.6468,
+        "roc_auc": 0.84
+      },
+      "test_metrics": {
+        "accuracy": 0.7468,
+        "balanced_accuracy": 0.707,
+        "precision": 0.6596,
+        "recall": 0.5741,
+        "specificity": 0.84,
+        "f1_score": 0.6139,
+        "roc_auc": 0.8222,
+        "pr_auc": 0.6772,
+        "brier_score": 0.1636
+      },
+      "selection_score": 0.7082,
+      "is_best": false
+    }
+  },
+  "environment": {
+    "python_version": "3.14.4 (tags/v3.14.4:23116f9, Apr  7 2026, 14:10:54) [MSC v.1944 64 bit (AMD64)]",
+    "scikit_learn_version": "1.9.1",
+    "joblib_version": "1.6.0",
+    "has_xgboost": true
+  }
+}

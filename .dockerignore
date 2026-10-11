@@ -1,0 +1,14 @@
+.venv
+**/.venv
+__pycache__
+**/__pycache__
+.git
+.env
+**/.env
+frontend/node_modules
+node_modules
+frontend/dist
+.pytest_cache
+.coverage
+mlruns
+models/*_backup.joblib

@@ -1,0 +1,44 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+ENV/
+.venv/
+
+# Testing & Coverage
+.pytest_cache/
+.coverage
+htmlcov/
+
+# MLflow & Local DBs
+mlruns/
+*.db
+mlflow.db
+
+# Environment variables
+.env
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Frontend dependencies and build output
+node_modules/
+frontend/node_modules/
+frontend/dist/
+dist/
+
+# Environment files (keep example templates)
+.env
+**/.env
+!**/.env.example
+
+# Local model backups are not required for deployment
+models/*_backup.joblib
+
+# Runtime inference logs
+artifacts/*.jsonl

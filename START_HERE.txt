@@ -1,0 +1,34 @@
+MEDIPREDICT AI — FIVE-MODEL VERSION
+
+This version adds a model dropdown to the Risk Prediction page and includes five trained model pipelines:
+1. Logistic Regression
+2. Random Forest
+3. Gradient Boosting
+4. Support Vector Machine (SVM)
+5. XGBoost
+
+RUN ON WINDOWS
+1. Extract this folder somewhere convenient, e.g. D:\MediPredictAI.
+2. Open the folder in VS Code.
+3. Double-click run_web.bat, or run it from PowerShell/CMD.
+4. If running manually, start the backend in Terminal 1:
+   .\.venv\Scripts\python.exe -m uvicorn api:app --host 127.0.0.1 --port 8000
+5. Start the frontend in Terminal 2:
+   cd frontend
+   npm install
+   npm run dev
+6. Open http://127.0.0.1:5173. API docs: http://127.0.0.1:8000/docs.
+
+If .venv does not exist, create it first from the project root:
+   py -m venv .venv
+   .\.venv\Scripts\python.exe -m pip install -r requirements.txt
+
+MODEL SELECTOR
+On Risk Prediction, select the algorithm from the Machine Learning model dropdown before clicking Generate estimate. The result panel shows which model was used. The default selection is Logistic Regression.
+
+RETRAINING
+The ZIP already includes model artifacts, including the SVM pipeline; you do not need to retrain just to run the demo. If you intentionally change training code or the dataset, back up the models/ and reports/ folders first. The full training command is:
+   .\.venv\Scripts\python.exe -m src.training.train
+
+IMPORTANT
+This is an academic demonstration only and is not a medical diagnostic tool. Model scores are based on a small public dataset and should not be used for healthcare decisions.

@@ -1,0 +1,73 @@
+{
+  "total_rows": 768,
+  "total_columns": 9,
+  "columns": [
+    "Pregnancies",
+    "Glucose",
+    "BloodPressure",
+    "SkinThickness",
+    "Insulin",
+    "BMI",
+    "DiabetesPedigreeFunction",
+    "Age",
+    "Outcome"
+  ],
+  "is_schema_valid": true,
+  "schema_issues": [],
+  "total_nulls": 0,
+  "null_counts": {
+    "Pregnancies": 0,
+    "Glucose": 0,
+    "BloodPressure": 0,
+    "SkinThickness": 0,
+    "Insulin": 0,
+    "BMI": 0,
+    "DiabetesPedigreeFunction": 0,
+    "Age": 0,
+    "Outcome": 0
+  },
+  "duplicate_summary": {
+    "duplicate_rows": 0,
+    "duplicate_percentage": 0.0
+  },
+  "suspicious_zero_summary": {
+    "Glucose": {
+      "zero_count": 5,
+      "percentage": 0.65,
+      "is_suspicious": true,
+      "clinical_reason": "Normal fasting: 70-99 mg/dL; 2h OGTT impaired: 140-199 mg/dL; Diabetic: >=200 mg/dL. Zero is biologically impossible in living patients."
+    },
+    "BloodPressure": {
+      "zero_count": 35,
+      "percentage": 4.56,
+      "is_suspicious": true,
+      "clinical_reason": "Normal: <80 mm Hg; Stage 1 hypertension: 80-89 mm Hg; Stage 2: >=90 mm Hg. Zero indicates absent circulatory pressure (measurement omission)."
+    },
+    "SkinThickness": {
+      "zero_count": 227,
+      "percentage": 29.56,
+      "is_suspicious": true,
+      "clinical_reason": "Typical female adult range: 10-35 mm. Zero represents unrecorded or omitted caliper measurement."
+    },
+    "Insulin": {
+      "zero_count": 374,
+      "percentage": 48.7,
+      "is_suspicious": true,
+      "clinical_reason": "Normal 2h post-load: 16-166 uU/mL. Zero is highly prevalent in the Pima dataset (approx 48%) due to omitted assay tests."
+    },
+    "BMI": {
+      "zero_count": 11,
+      "percentage": 1.43,
+      "is_suspicious": true,
+      "clinical_reason": "Normal: 18.5-24.9 kg/m^2; Overweight: 25.0-29.9 kg/m^2; Obese: >=30.0 kg/m^2. Zero represents unrecorded patient stature/weight."
+    }
+  },
+  "range_anomalies": {},
+  "target_summary": {
+    "total_records": 768,
+    "negative_class_0_count": 500,
+    "positive_class_1_count": 268,
+    "positive_ratio": 0.349,
+    "class_balance": "65.1% vs 34.9%"
+  }
+}
