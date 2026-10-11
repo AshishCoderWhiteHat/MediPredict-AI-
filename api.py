@@ -43,9 +43,12 @@ app = FastAPI(
 )
 
 # CORS Middleware
+
+# CORS Middleware
 app.add_middleware(
     CORSMiddleware,
     allow_origins=[
+        "https://medi-predict-24gctxi71-team-titans14.vercel.app",
         "http://localhost:5173",
         "http://127.0.0.1:5173",
         "http://localhost:4173",
@@ -55,6 +58,7 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
+
 
 _START_TIME = time.time()
 
