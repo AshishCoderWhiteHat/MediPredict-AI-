@@ -23,7 +23,7 @@ if not exist "frontend\node_modules" (
   popd
 )
 
-start "MediPredict FastAPI" cmd /k "cd /d "%~dp0" && .venv\Scripts\python.exe -m uvicorn api:app --host 127.0.0.1 --port 8000"
+start "MediPredict FastAPI" cmd /k "cd /d "%~dp0" && .venv\Scripts\python.exe -m uvicorn api:app --host 127.0.0.1 --port 8000 --reload"
 timeout /t 3 /nobreak >nul
 start "MediPredict React" cmd /k "cd /d "%~dp0frontend" && npm run dev -- --host 127.0.0.1"
 timeout /t 2 /nobreak >nul

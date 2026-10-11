@@ -8,7 +8,7 @@ Description: REST API for explainable disease risk prediction, health telemetry,
 import time
 import logging
 from typing import Dict, Any, List
-from fastapi import FastAPI, HTTPException, status
+from fastapi import FastAPI, HTTPException, status, Request
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import JSONResponse, FileResponse
 
@@ -60,11 +60,12 @@ _START_TIME = time.time()
 
 
 @app.get("/", tags=["General"])
-def root():
-    """Serves the React single page app if built, or API status overview."""
+def root(request: Request):
+    """Serves the React single page app if browser navigation, or API status overview for API clients."""
     from pathlib import Path
+    accept_header = request.headers.get("accept", "")
     dist_index = Path(__file__).resolve().parent / "frontend" / "dist" / "index.html"
-    if dist_index.exists():
+    if "text/html" in accept_header and dist_index.exists():
         return FileResponse(dist_index)
     return {
         "service": "MediPredict AI API",
